@@ -1,0 +1,4 @@
+# Ignore large files
+*.csv
+data/cleaned_traffic_accidents.csv
+data/US_Accidents_March23.csv

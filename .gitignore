@@ -2,6 +2,7 @@
 *.csv
 data/cleaned_traffic_accidents.csv
 data/US_Accidents_March23.csv
+data/final_cleaned_accident_data.csv
 
 # Ignore Anaconda projects folder
 anaconda_projects/db/

@@ -11,3 +11,9 @@ after downloading the Data from the link provided, I analysed it and cleaned it 
 - My goal for this project is to practise what I have learned after completing the python for data science course on IBM Skillsbuild, while trying out some new libraries and learning more as I go along.
 
 After Completing this project I hope to be comfortable using Python effeciently and expand my coding knowledge.
+
+TO DO: conclude notebook 03
+fix inconsistencies in grammer and punc. etc
+notebook04 machine learning
+05 final analysys
+create web app for user interaction online???

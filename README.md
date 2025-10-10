@@ -1,19 +1,38 @@
-<h1>Traffic accident predictor</h1>
+# 🚗 Traffic Accident Analysis and Severity Prediction
 
-<p>Data sourced from Kaggle: https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents?resource=download</p>
+### Data Source
 
-Road accidents data in the US from 2016 - 2023
+Data sourced from Kaggle: [US Accidents (2016–2023)](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents?resource=download)
 
-after downloading the Data from the link provided, I analysed it and cleaned it by dropping any collumns I did not intend on using and replacing NaN values if necessary. I then created a new cleaned file with the updated data to be used for my project.
+---
 
-- I Will documennt this project split into 5 main notebooks. Data exploration, Data cleaning, Data visualisation, machine learning and dinal analysis.
+## 🧠 Project Overview
 
-- My goal for this project is to practise what I have learned after completing the python for data science course on IBM Skillsbuild, while trying out some new libraries and learning more as I go along.
+This project analyzes and predicts the **severity of road accidents in the U.S.** between 2016 and 2023.  
+The dataset contains millions of accident records, and the goal is to understand contributing factors and predict how severe an accident might be under given conditions.
 
-After Completing this project I hope to be comfortable using Python effeciently and expand my coding knowledge.
+The work is divided into **five Jupyter notebooks**:
 
-TO DO: conclude notebook 03
-fix inconsistencies in grammer and punc. etc
-notebook04 machine learning
-05 final analysys
-create web app for user interaction online???
+1. **Data Exploration** – Understanding dataset structure and distributions
+2. **Data Cleaning** – Removing irrelevant columns, handling missing data, and exporting a cleaned version
+3. **Data Visualization** – Creating bar charts, severity plots, and interactive Folium heatmaps (with user input by state)
+4. **Machine Learning** – Training multiple models (Logistic Regression, Random Forest, Gradient Boosting, and XGBoost) to predict accident severity
+5. **Final Analysis** – Loading the final weighted XGBoost model, testing predictions, and preparing for deployment
+
+---
+
+## 🎯 Project Goals
+
+- Apply and expand on concepts learned in the **IBM Python for Data Science** course
+- Build confidence using real-world datasets and industry-standard Python libraries
+- Practice **data cleaning**, **feature engineering**, **machine learning**, and **visual storytelling**
+- Create a web application where users can enter conditions and receive a predicted accident severity level
+
+---
+
+## 🧩 Tech Stack
+
+- **Languages:** Python
+- **Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, XGBoost, Folium
+- **Environment:** Jupyter Notebook, VS Code, Anaconda
+- **Planned Deployment:** Streamlit (for interactive web app)

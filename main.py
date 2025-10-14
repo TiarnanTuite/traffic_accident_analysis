@@ -13,6 +13,38 @@ from xgboost import XGBClassifier
 # Streamlit Page Setup
 st.set_page_config(page_title="Traffic Accident Severity Predictor", layout="wide")
 
+
+# Cache Functions for loading
+@st.cache_data
+def load_data():
+    return pd.read_csv(os.path.join("data", "final_cleaned_accident_data.csv"))
+
+
+@st.cache_resource
+def load_model():
+    model_path = os.path.join("models", "final_xgb_model.pkl")
+    with open(model_path, "rb") as f:
+        model = pickle.load(f)
+    return model
+
+
+# Loading Indicator with Progress Bar
+progress_text = "Initializing model and loading dataset... please wait (first run may take a few seconds)"
+my_bar = st.progress(0, text=progress_text)
+
+for percent_complete in range(0, 100, 10):
+    my_bar.progress(percent_complete + 10, text=progress_text)
+
+# Load Resources (Cached Globally)
+with st.spinner("Loading model and dataset..."):
+    df = load_data()
+    xgb_model = load_model()
+
+# Finish progress
+my_bar.empty()  # remove bar
+st.balloons()  # popup when complete
+
+
 # navigation
 tab1, tab2, tab3 = st.tabs(["Home", "Predictor", "Maps"])
 
@@ -31,22 +63,6 @@ with tab1:
 
 # predictor
 with tab2:
-
-    # Cache Functions for loading
-    @st.cache_data
-    def load_data():
-        return pd.read_csv(os.path.join("data", "final_cleaned_accident_data.csv"))
-
-    @st.cache_resource
-    def load_model():
-        model_path = os.path.join("models", "final_xgb_model.pkl")
-        with open(model_path, "rb") as f:
-            model = pickle.load(f)
-        return model
-
-    # Load Resources
-    df = load_data()
-    xgb_model = load_model()
 
     # User Input Form
     st.subheader("Enter Conditions:")

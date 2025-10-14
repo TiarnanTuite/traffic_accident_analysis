@@ -28,21 +28,38 @@ def load_model():
     return model
 
 
-# Loading Indicator with Progress Bar
-progress_text = "Initializing model and loading dataset... please wait (first run may take a few seconds)"
+# matching progress bar with actual loading
+import time
+
+progress_text = "Please wait! (Initializing model and loading dataset...)"
 my_bar = st.progress(0, text=progress_text)
 
-for percent_complete in range(0, 100, 10):
-    my_bar.progress(percent_complete + 10, text=progress_text)
+# Loading dataset
+my_bar.progress(
+    10, text=" Loading accident dataset...(First run might take a few seconds!)"
+)
+time.sleep(0.2)  # small delay before it starts
+df = load_data()
+for i in range(10, 40, 5):
+    time.sleep(0.2)
+    my_bar.progress(i, text="Loading accident dataset...")
 
-# Load Resources (Cached Globally)
-with st.spinner("Loading model and dataset..."):
-    df = load_data()
-    xgb_model = load_model()
+# Loading model
+my_bar.progress(50, text="Loading trained XGBoost model...")
+time.sleep(0.2)
+xgb_model = load_model()
+for i in range(50, 90, 5):
+    time.sleep(0.2)
+    my_bar.progress(i, text="Loading trained XGBoost model...")
 
-# Finish progress
-my_bar.empty()  # remove bar
-st.balloons()  # popup when complete
+# Step 3: Finishing up
+for i in range(90, 101, 2):
+    time.sleep(0.1)
+    my_bar.progress(i, text="Finalizing setup...")
+
+my_bar.empty()
+# success animation
+st.balloons()
 
 
 # navigation
@@ -60,6 +77,51 @@ with tab1:
     Dataset Source: [US Accidents (2016–2023)](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents)
     """
     )
+
+    st.markdown("---")
+
+    st.header("About This Project")
+    st.write(
+        """
+    This project explores patterns in U.S. road accident data from 2016-2023, aiming to identify how
+    environmental conditions influence the **severity** of accidents.
+
+    Using machine learning — specifically an **XGBoost model** — it analyzes factors such as:
+    - Distance of the accident segment  
+    - Temperature  
+    - Humidity  
+    - Visibility  
+
+    The trained model can then predict how severe an accident might be under given conditions,
+    serving as a foundation for a real-world **road safety and risk awareness tool**.
+    """
+    )
+
+    st.header("App Features")
+    st.write(
+        """
+    - **Accident Severity Predictor:** Test different weather and road conditions to see how they affect
+        predicted severity.  
+    - **Interactive Maps:xplore accident density and severity heatmaps across U.S. states.  
+    - **Insights & Final Analysis:** Summarizes the model’s performance and real-world implications.
+    """
+    )
+
+    st.header("Project Goals")
+    st.write(
+        """
+    - Practice **data analysis and visualization** using Python.  
+    - Apply **machine learning techniques** to real-world datasets.  
+    - Build and deploy an **interactive Streamlit web app** to demonstrate predictive insights.  
+    - Expand technical experience in data preprocessing, feature engineering, and deployment.
+    """
+    )
+
+    st.markdown("---")
+    st.info(
+        "Use the **Predictor** tab to get started! test conditions and see how the model classifies accident severity."
+    )
+
 
 # predictor
 with tab2:

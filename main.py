@@ -102,7 +102,7 @@ with tab1:
         """
     - **Accident Severity Predictor:** Test different weather and road conditions to see how they affect
         predicted severity.  
-    - **Interactive Maps:xplore accident density and severity heatmaps across U.S. states.  
+    - **Interactive Maps:** Explore accident density and severity heatmaps across U.S. states.  
     - **Insights & Final Analysis:** Summarizes the model’s performance and real-world implications.
     """
     )
@@ -165,7 +165,7 @@ with tab2:
         st.markdown("---")
         st.subheader("Prediction Result")
         st.success(
-            f"Predicted Severity: **{predicted_severity}** (1 = least severe - 4 = most severe)"
+            f"Based on US data, Crashing with these journey conditions typically have Predicted Severity: **{predicted_severity}** (1 = least severe - 4 = most severe)"
         )
 
     # Note

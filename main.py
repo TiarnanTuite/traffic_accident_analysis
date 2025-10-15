@@ -17,7 +17,7 @@ st.set_page_config(page_title="Traffic Accident Severity Predictor", layout="wid
 # Cache Functions for loading
 @st.cache_data
 def load_data():
-    return pd.read_csv(os.path.join("data", "final_cleaned_accident_data.csv"))
+    return pd.read_csv(os.path.join("data", "sample_accident_data.csv"))
 
 
 @st.cache_resource
